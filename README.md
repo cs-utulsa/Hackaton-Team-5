@@ -2,7 +2,7 @@
 Uses 3 classes for backend functionality. They are student, event and testing.
 * Student class is for the student object, tracking information and events attended. 
 * The event class is for tracking the event object, relevant information and student attendence.
-* The testing class if for utilizing the above classes. It uses commands to input data and create objects.
+* The testing class sf for utilizing the above classes. It uses commands to input data and create objects. The commands it uses can be flound below.
 
 ## Commands
 * EXIT - ends the program, wipes all data.
