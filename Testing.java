@@ -35,40 +35,38 @@ public class Testing {
 
 			System.out.println("Type \"Create Event\", \"Create Student\", \"Mark Attendance\", \"View Student\", \"View Event\", or \"EXIT\" to end.");
 			Scanner input1 = new Scanner(System.in);
-			String path = input1.toString();
-
-			while(true){
-				input1 = new Scanner(System.in);
-				path = input1.toString();
-				if(path.length() > 0){
-					break;
-				}
-			}
+			String path = input1.nextLine();
 			
 
 			switch(path){
 
 				case("Create Event"):
 					Create_Event();
+					break;
 
 				case("Create Student"):
 					Create_Student();
+					break;
 
 				case("Mark Attendance"):
 					Mark_Attendance();
+					break;
 
 				case("View Student"):
 					View_Student(false);
+					break;
 
 				case("View Event"):
 					View_Event(false);
+					break;
 
 				case("EXIT"):
 					run = false;
+					break;
 
 				default:
 					System.out.println("Invalid input!");
-
+					break;
 
 			}
 
