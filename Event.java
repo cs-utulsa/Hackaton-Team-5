@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 /**
  * Event Class
  * 
  * This class should cover tracking and creating events. 
- * Needs to hold the event’s ID (attendance code, 4 digits), location, timestamp and point value. 
+ * Needs to hold the eventï¿½s ID (attendance code, 4 digits), location, timestamp and point value. 
  * 
  * Hackaton Group 5
  * 
@@ -16,7 +17,7 @@ public class Event {
 	private String timeStamp;
 	private String category;
 	private int pointValue;
-	private String[] students;
+	private ArrayList<String> students;
 	
 	public Event(int eventID, String name, String location, String timeStamp, String category, int pointValue)
 	{
@@ -26,10 +27,56 @@ public class Event {
 		timeStamp = this.timeStamp;
 		category = this.category;
 		pointValue = this.pointValue;
+		students = new ArrayList<String>();
 	}
 	
-	//Add rest of methods
+	public int getEventID(){
+		return eventID;
+	}
+	public void setEventID(int eventID){
+		this.eventID = eventID;
+	}
 	
-	//Add getters and setters
+	public String getName(){
+		return name;
+	}
+	public void setName(String name){
+		this.name = name;
+	}
+	
+	public String getLocation(){
+		return location;
+	}
+	public void setLocation(String location){
+		this.location = location;
+	}
 
+	public String getTimeStamp(){
+		return timeStamp;
+	}
+	public void setTimeStamp(String timeStamp){
+		this.timeStamp = timeStamp;
+	}
+	
+	public String getCategory(){
+		return category;
+	}
+	public void setCategory(String category){
+		this.category = category;
+	}
+	
+	public int getPointValue(){
+		return pointValue;
+	}
+	public void setPointValue(int pointValue){
+		this.pointValue = pointValue;
+	}
+	
+	public void printStudents(){
+		System.out.println(students.toString());
+	}
+	
+	public void addStudent(String student){
+		students.add(student);
+	}
 }

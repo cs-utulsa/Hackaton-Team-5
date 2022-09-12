@@ -1,12 +1,13 @@
+import java.util.ArrayList;
 /**
  * Student Class
  * 
  * This class should cover tracking student data. The date we want to capture includes first name, last name, 
- * TU email, graduation date (month/year), total points and what events they attended. Will use TU email for student’s ID.
+ * TU email, graduation date (month/year), total points and what events they attended. Will use TU email for studentï¿½s ID.
  * 
  * Hackaton Group 5
  * 
- * Last Updated: 9/10/22
+ * Last Updated: 9/11/22
  */
 public class Student {
 	private String firstName;
@@ -14,7 +15,7 @@ public class Student {
 	private	String email;
 	private String gradDate;
 	private int totalPoints;
-	private int[][] events;
+	private ArrayList<Event> events;
 	
 	public Student(String firstName, String lastName, String email, String gradDate)
 	{
@@ -22,6 +23,7 @@ public class Student {
 		lastName = this.lastName;
 		email = this.email;
 		gradDate = this.gradDate;
+		events = new ArrayList<Event>();
 	}
 	public Student(String firstName, String lastName, String email, String gradDate, int totalPoints)
 	{
@@ -30,9 +32,10 @@ public class Student {
 		email = this.email;
 		gradDate = this.gradDate;
 		totalPoints = this.totalPoints;
+		events = new ArrayList<Event>();
 	}
 	
-	//Add reaming methods
+	
 	
 	public String getFirstName() 
 	{
@@ -42,6 +45,49 @@ public class Student {
 	{
 		this.firstName = firstName;
 	}
-	//Add Test of getters and setters
+	
+	public String getLastName() 
+	{
+		return lastName;
+	}
+	public void setLastName(String lastName) 
+	{
+		this.lastName = lastName;
+	}
+	
+	public String getEmail() 
+	{
+		return email;
+	}
+	public void setEmail(String email) 
+	{
+		this.email = email;
+	}	
+	
+	public String getGradDate() 
+	{
+		return gradDate;
+	}
+	public void setGradDate(String gradeDate) 
+	{
+		this.gradDate = gradDate;
+	}
+	
+	public int getTotalPoints() 
+	{
+		return totalPoints;
+	}
+	public void setTotalPoints(int totalPoints) 
+	{
+		this.totalPoints = totalPoints;
+	}			
+	
+	public void attendEvent(Event event){
+		events.add(event);
+	}
+	
+	public void printEvents(){
+		System.out.println(events.toString());
+	}
 
 }
