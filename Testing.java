@@ -56,9 +56,15 @@ public class Testing {
 					ArrayList<String> necessary_info = Attendance();
 					for(int counter = 0; counter < events.size(); counter++){
 						if(events.get(counter).getEventID() == Integer.valueOf(necessary_info.get(0))){
-							events.get(counter).addStudent(necessary_info.get(1));
+							for(int counter2 = 0; counter2 < students.size(); counter2++){
+								if(students.get(counter2).getEmail() == necessary_info.get(1)){
+									events.get(counter).addStudent(students.get(counter2));
+									students.get(counter2).attendEvent(events.get(counter));
+								}
+							}
 						}
 					}
+					
 					break;
 
 				case("View All Students"):
