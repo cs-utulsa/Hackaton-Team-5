@@ -37,7 +37,7 @@ public class Testing {
 		Scanner input1 = new Scanner(System.in);
 		while(run){
 
-			System.out.println("Type \"Create Event\", \"Create Student\", \"Mark Attendance\", \"View All Students\", \"View All Events\", or \"EXIT\" to end.");
+			System.out.println("Type \"Create Event\", \"Create Student\", \"Mark Attendance\", \"View Event\", \"View Student\", \"View All Students\", \"View All Events\", or \"EXIT\" to end.");
 			String path = input1.nextLine();
 
 			switch(path){
@@ -67,24 +67,35 @@ public class Testing {
 					
 					break;
 
+				case("View Student"):
+					System.out.println("Type the student ID/email.");
+					String path2 = input1.nextLine();
+					for(int counter2 = 0; counter2 < students.size(); counter2++){
+						if(students.get(counter2).getEmail() == path2){
+							students.get(counter2).printInfo();
+						}
+					}
+					break;
+
+				case("View Event"):
+					System.out.println("Type the event ID number.");
+					String path3 = input1.nextLine();
+					for(int counter = 0; counter < events.size(); counter++){
+						if(events.get(counter).getEventID() == Integer.valueOf(path3)){
+							events.get(counter).printInfo();
+						}
+					}
+					break;
+
 				case("View All Students"):
 					for(int counter = 0; counter < students.size(); counter++){
-						System.out.println(students.get(counter).getFirstName());
-						System.out.println(students.get(counter).getLastName());
-						System.out.println(students.get(counter).getTotalPoints());
-						System.out.println();
+						students.get(counter).printInfo();
 					}
 					break;
 
 				case("View All Events"):
 					for(int counter = 0; counter < events.size(); counter++){
-						System.out.println(events.get(counter).getName());
-						System.out.println(events.get(counter).getEventID());
-						System.out.println(events.get(counter).getLocation());
-						System.out.println(events.get(counter).getTimeStamp());
-						System.out.println(events.get(counter).getCategory());
-						System.out.println(events.get(counter).getPointValue());
-						System.out.println();
+						events.get(counter).printInfo();
 					}
 					break;
 
