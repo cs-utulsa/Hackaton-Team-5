@@ -29,22 +29,20 @@ public class Testing {
 	public static void main(String[] args)
 	{
 
+		//Add input
 		ArrayList<Student> students = new ArrayList<Student>();
 		ArrayList<Event> events = new ArrayList<Event>();
 
-		//Add input
 		boolean run = true;
+		Scanner input1 = new Scanner(System.in);
 		while(run){
 
 			System.out.println("Type \"Create Event\", \"Create Student\", \"Mark Attendance\", \"View All Students\", \"View All Events\", or \"EXIT\" to end.");
-			Scanner input1 = new Scanner(System.in);
 			String path = input1.nextLine();
-			
 
 			switch(path){
 
 				case("Create Event"):
-					Create_Event();
 					Event new_event = Create_Event();
 					events.add(new_event);
 					break;
@@ -55,7 +53,12 @@ public class Testing {
 					break;
 
 				case("Mark Attendance"):
-					Mark_Attendance();
+					ArrayList<String> necessary_info = Attendance();
+					for(int counter = 0; counter < events.size(); counter++){
+						if(events.get(counter).getEventID() == Integer.valueOf(necessary_info.get(0))){
+							events.get(counter).addStudent(necessary_info.get(1));
+						}
+					}
 					break;
 
 				case("View All Students"):
@@ -68,15 +71,15 @@ public class Testing {
 					break;
 
 				case("View All Events"):
-				for(int counter = 0; counter < events.size(); counter++){
-					System.out.println(events.get(counter).getName());
-					System.out.println(events.get(counter).getEventID());
-					System.out.println(events.get(counter).getLocation());
-					System.out.println(events.get(counter).getTimeStamp());
-					System.out.println(events.get(counter).getCategory());
-					System.out.println(events.get(counter).getPointValue());
-					System.out.println();
-				}
+					for(int counter = 0; counter < events.size(); counter++){
+						System.out.println(events.get(counter).getName());
+						System.out.println(events.get(counter).getEventID());
+						System.out.println(events.get(counter).getLocation());
+						System.out.println(events.get(counter).getTimeStamp());
+						System.out.println(events.get(counter).getCategory());
+						System.out.println(events.get(counter).getPointValue());
+						System.out.println();
+					}
 					break;
 
 				case("EXIT"):
@@ -89,9 +92,9 @@ public class Testing {
 
 			}
 
-
 		}
 
+		input1.close();
 
 	}
 
@@ -99,9 +102,9 @@ public class Testing {
 
 		System.out.println("Type \"eventID,eventName,eventLocation,start time,eventCategory,pointValue\"");
 		Scanner input = new Scanner(System.in);
-		String path = input.nextLine();
+		String info_string = input.nextLine();
 
-		String [] info = path.split(",");
+		String [] info = info_string.split(",");
 		System.out.println(Arrays.toString(info));
 
 		Event event = new Event(Integer.valueOf(info[0]), info[1], info[2], info[3], info[4], Integer.valueOf(info[5]));
@@ -114,19 +117,31 @@ public class Testing {
 
 		System.out.println("Type \"First Name,Last Name,Email,Graduation Date\"");
 		Scanner input = new Scanner(System.in);
-		String path = input.nextLine();
+		String info_string = input.nextLine();
 
-		String [] info = path.split(",");
+		String [] info = info_string.split(",");
 		System.out.println(Arrays.toString(info));
 
 		Student student = new Student(info[0], info[1], info[2], info[3]);
-
+		System.out.println(info[0]);
 		return student;
 	}
 
-	public static void Mark_Attendance(){
+	public static ArrayList<String> Attendance(){
+
+		System.out.println("Type the event ID number.");
+		Scanner input = new Scanner(System.in);
+		String info_string1 = input.nextLine();
+		System.out.println("Type the student ID/email.");
+		String info_string2 = input.nextLine();
+
+		ArrayList<String> returned_info = new ArrayList<String>();
+		returned_info.add(info_string1);
+		returned_info.add(info_string2);
+
+		return returned_info;
+
 
 	}
-
 
 }
