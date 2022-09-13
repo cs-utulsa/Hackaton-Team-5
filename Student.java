@@ -23,6 +23,7 @@ public class Student {
 		lastName = this.lastName;
 		email = this.email;
 		gradDate = this.gradDate;
+		totalPoints = 0;
 		events = new ArrayList<Event>();
 	}
 	public Student(String firstName, String lastName, String email, String gradDate, int totalPoints)
@@ -76,14 +77,11 @@ public class Student {
 	public int getTotalPoints() 
 	{
 		return totalPoints;
-	}
-	public void setTotalPoints(int totalPoints) 
-	{
-		this.totalPoints = totalPoints;
 	}			
 	
 	public void attendEvent(Event event){
 		events.add(event);
+		totalPoints += event.getPointValue();
 	}
 	
 	public void printEvents(){
