@@ -3,6 +3,7 @@ Uses 3 classes for backend functionality. They are student, event and testing.
 * Student class is for the student object, tracking information and events attended. 
 * The event class is for tracking the event object, relevant information and student attendence.
 * The testing class is for utilizing the above classes. It uses commands to input data and create objects. The commands it uses can be flound below.
+Includes a 4th class which is for basic UI using Jframes. May or may not be ready at time of delivery. 
 
 ## Commands
 * EXIT - ends the program, wipes all data.
