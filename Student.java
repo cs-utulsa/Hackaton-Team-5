@@ -19,10 +19,10 @@ public class Student {
 	
 	public Student(String firstName, String lastName, String email, String gradDate)
 	{
-		firstName = this.firstName;
-		lastName = this.lastName;
-		email = this.email;
-		gradDate = this.gradDate;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.gradDate = gradDate;
 		totalPoints = 0;
 		events = new ArrayList<Event>();
 	}
@@ -79,13 +79,26 @@ public class Student {
 		return totalPoints;
 	}			
 	
+	//Adds event to student's events.
+	//Add student to event's attendance
+	//Updates students points
 	public void attendEvent(Event event){
 		events.add(event);
+		event.addStudent(this);
 		totalPoints += event.getPointValue();
 	}
 	
-	public void printEvents(){
-		System.out.println(events.toString());
+	//Prints student's info and events attended
+	public void printInfo(){
+		System.out.println("Name: "+firstName+" "+lastName);
+		System.out.println("Email: "+email);
+		System.out.println("Graduates: "+gradDate);
+		System.out.println("Total Points: "+totalPoints);
+		
+		System.out.println("\nEvents Attended: ");
+		for(int i = 0; i < events.size(); i++){
+			System.out.println(events.get(i).getName());
+		}
 	}
 
 }

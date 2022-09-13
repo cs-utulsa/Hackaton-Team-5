@@ -17,17 +17,17 @@ public class Event {
 	private String timeStamp;
 	private String category;
 	private int pointValue;
-	private ArrayList<String> students;
+	private ArrayList<Student> students;
 	
 	public Event(int eventID, String name, String location, String timeStamp, String category, int pointValue)
 	{
-		eventID = this.eventID;
-		name = this.name;
-		location = this.location;
-		timeStamp = this.timeStamp;
-		category = this.category;
-		pointValue = this.pointValue;
-		students = new ArrayList<String>();
+		this.eventID = eventID;
+		this.name = name;
+		this.location = location;
+		this.timeStamp = timeStamp;
+		this.category = category;
+		this.pointValue = pointValue;
+		students = new ArrayList<Student>();
 	}
 	
 	public int getEventID(){
@@ -72,11 +72,17 @@ public class Event {
 		this.pointValue = pointValue;
 	}
 	
-	public void printStudents(){
-		System.out.println(students.toString());
+	//adds student to attendance. Is called from Student
+	public void addStudent(Student student){
+		students.add(student);
 	}
 	
-	public void addStudent(String student){
-		students.add(student);
+	//Prints event info and who attended
+	public void printInfo(){
+		System.out.println(eventID+"	"+name+"	"+location+"	"+timeStamp+"	"+category+"	"+pointValue);
+		System.out.println("Students in Attendence:");
+		for(int i=0; i<students.size(); i++){
+			System.out.println(students.get(i).getFirstName()+" "+students.get(i).getLastName());
+		}
 	}
 }
