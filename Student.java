@@ -99,6 +99,7 @@ public class Student {
 		for(int i = 0; i < events.size(); i++){
 			System.out.println(events.get(i).getName());
 		}
+		System.out.println();
 	}
 
 }

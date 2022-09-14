@@ -79,10 +79,16 @@ public class Event {
 	
 	//Prints event info and who attended
 	public void printInfo(){
-		System.out.println(eventID+"	"+name+"	"+location+"	"+timeStamp+"	"+category+"	"+pointValue);
-		System.out.println("Students in Attendence:");
+		System.out.println("Event ID: "+eventID);
+		System.out.println("Event Name: "+name);
+		System.out.println("Location: "+location);
+		System.out.println("Date & Time: "+timeStamp);
+		System.out.println("Category: "+category);
+		System.out.println("Point Value: "+pointValue);
+		System.out.println("Students that attended:");
 		for(int i=0; i<students.size(); i++){
 			System.out.println(students.get(i).getFirstName()+" "+students.get(i).getLastName());
 		}
+		System.out.println();
 	}
 }
